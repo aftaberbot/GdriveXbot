@@ -5,6 +5,9 @@
 
 ## [Forked from](https://github.com/kjeymax/GDUPLOAD_BOT2)
 
+## [Deploy](https://heroku.com/deploy?template=https://github.com/EnteRepo/GdriveXbot)
+
+
 ## Features
 - [X] Telegram files support.
 - [X] Direct Links support.
