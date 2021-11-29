@@ -17,7 +17,7 @@ TB = [
 
 @Client.on_message(filters.private & filters.incoming & filters.command(['start']), group=2)
 async def _start(client, message):
-    FSub = await ForceSub(client, message)
+    FSub = await ForceSub(bot, update)
     if FSub == 400:
         return       
            
