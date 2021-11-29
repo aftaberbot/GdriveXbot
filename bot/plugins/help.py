@@ -3,6 +3,8 @@ from pyrogram import Client, filters
 from bot.config import Messages as tr
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
+from pyrogram.errors import UserNotParticipant, UserBannedInChannel          
+
 from bot.plugins.forcesub import ForceSub
 
 
@@ -17,9 +19,24 @@ TB = [
 
 @Client.on_message(filters.private & filters.incoming & filters.command(['start']), group=2)
 async def _start(client, message):
-    FSub = await ForceSub(bot, update)
-    if FSub == 400:
-        return       
+    update_channel = "MyTestBotZ"
+    if update_channel:
+        try:
+            user = await client.get_chat_member(update_channel, message.chat.id)
+            if user.status == "kicked":
+               await message.reply_text("you are BANNED")
+               return
+        except UserNotParticipant:
+            await message.reply_text(text="Join my channel",
+                  reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton(text="ᴊᴏɪɴ ɴᴏᴡ 🔓", url=f"https://t.me/{UPDATE_CHANNEL}") ]
+                ] 
+              )
+            )
+            return
+        except Exception:
+            await message.reply_text("Contact my dev")
+            return
+
            
     await client.send_message(chat_id = message.chat.id,
         text = tr.START_MSG.format(message.from_user.mention),
