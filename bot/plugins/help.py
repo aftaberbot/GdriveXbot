@@ -21,7 +21,7 @@ async def _start(client, message):
     if FSub == 400:
         return       
            
-    client.send_message(chat_id = message.chat.id,
+    await client.send_message(chat_id = message.chat.id,
         text = tr.START_MSG.format(message.from_user.mention),
         reply_markup = InlineKeyboardMarkup(TB),                 
         reply_to_message_id = message.message_id
