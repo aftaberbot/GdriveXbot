@@ -28,7 +28,7 @@ async def _start(client, message):
                return
         except UserNotParticipant:
             await message.reply_text(text="Join my channel",
-                  reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton(text="ᴊᴏɪɴ ɴᴏᴡ 🔓", url=f"https://t.me/{UPDATE_CHANNEL}") ]
+                  reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton(text="ᴊᴏɪɴ ɴᴏᴡ 🔓", url=f"https://t.me/MyTestBotZ") ]
                 ] 
               )
             )
