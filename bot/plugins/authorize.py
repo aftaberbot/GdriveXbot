@@ -24,7 +24,7 @@ flow = None
 async def _auth(client, message):
   # force sub #
   update_channel = "MyTestBotZ"
-    if update_channel:
+  if update_channel:
         try:
             user = await client.get_chat_member(update_channel, message.chat.id)
             if user.status == "kicked":
