@@ -27,7 +27,7 @@ async def _start(client, message):
                await message.reply_text("you are BANNED")
                return
         except UserNotParticipant:
-            await message.reply_text(text="Join my channel",
+            await message.reply_text(text="**Please Join My Updates Channel to use ME 😌!**\n\n__Due to Overload, Only Channel Subscribers can use the Bot!🤷__",
                   reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton(text="ᴊᴏɪɴ ɴᴏᴡ 🔓", url=f"https://t.me/MyTestBotZ") ]
                 ] 
               )
