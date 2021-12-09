@@ -12,6 +12,8 @@ from bot.helpers.sql_helper import gDriveDB
 from bot.config import BotCommands
 from bot.helpers.utils import CustomFilters
 
+from pyrogram.errors import UserNotParticipant, UserBannedInChannel          
+
 
 OAUTH_SCOPE = "https://www.googleapis.com/auth/drive"
 REDIRECT_URI = "urn:ietf:wg:oauth:2.0:oob"
@@ -20,6 +22,25 @@ flow = None
 
 @Client.on_message(filters.private & filters.incoming & filters.command(BotCommands.Authorize))
 async def _auth(client, message):
+  # force sub #
+  update_channel = "MyTestBotZ"
+    if update_channel:
+        try:
+            user = await client.get_chat_member(update_channel, message.chat.id)
+            if user.status == "kicked":
+               await message.reply_text("you are BANNED")
+               return
+        except UserNotParticipant:
+            await message.reply_text(text="**Please Join My Updates Channel to use ME 😌!**\n\n__Due to Overload, Only Channel Subscribers can use the Bot!🤷__",
+                  reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton(text="ᴊᴏɪɴ ɴᴏᴡ 🔓", url=f"https://t.me/MyTestBotZ") ]
+                ] 
+              )
+            )
+            return
+        except Exception:
+            await message.reply_text("Contact my dev")
+            return
+          # end #
   user_id = message.from_user.id
   creds = gDriveDB.search(user_id)
   if creds is not None:
