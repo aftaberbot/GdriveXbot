@@ -2,7 +2,7 @@ class config:
     BOT_TOKEN = "5670099056:AAF1M1MbzQ4Dt7GxF_oAeWtyg9ACf2Jg2Ts"
     APP_ID = "23883349"
     API_HASH = "9ae2939989ed439ab91419d66b61a4a4"
-    DATABASE_URL = ""
+    DATABASE_URL = "mongodb+srv://partamnavai:Aftab123@cluster0.gxar1rq.mongodb.net/?retryWrites=true&w=majority "
     SUDO_USERS = "5429071679" # Sepearted by space.
     DOWNLOAD_DIRECTORY = "./downloads/"
     G_DRIVE_CLIENT_ID = ""
